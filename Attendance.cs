@@ -19,7 +19,7 @@ namespace Dotnet_Example
             Console.WriteLine($" \"Welcome\" {name}");
             if( name == "Jhon" || name=="Steven" || name == "Mathew")
             {
-
+                Console.WriteLine(name);
             }
         }
     }
