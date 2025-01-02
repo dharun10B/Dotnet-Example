@@ -6,21 +6,30 @@ using System.Threading.Tasks;
 
 namespace Dotnet_Example
 {
+public delegate void EventHandler(string name);
+
     internal class Attendance
     {
-        public void CaseInsensitiveFunction() 
+        public event EventHandler BannedUser;
+        
+        public void ShowAttendance(string name) 
         {
-
-        }
-        public void ShowAttendance() 
-        {
-            Console.WriteLine("Enter your Name :");
-            String name=Console.ReadLine();
-            Console.WriteLine($" \"Welcome\" {name}");
+            
             if( name == "Jhon" || name=="Steven" || name == "Mathew")
             {
-                Console.WriteLine(name);
+                BannedUser?.Invoke(name);
             }
+            else
+            {
+                Console.WriteLine($"Welcome user :  {name}");
+            }
+        }
+    }
+    internal class Banned
+    {
+        public void UserBanned(string name)
+        {
+            Console.WriteLine($"{name}, you are banned from the organization.");
         }
     }
 }

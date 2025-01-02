@@ -2,7 +2,6 @@
 using static Dotnet_Example.calculate;
 
 public delegate int mydelegate(int a, int b);
-
 internal class Program
 {
     //public delegate void calc(int a, int b);
@@ -29,8 +28,14 @@ internal class Program
         //FileInfoFunction fi = new FileInfoFunction();
         //fi.FileInfo();
 
-        Attendance attendance = new Attendance();
-        attendance.ShowAttendance();
+        Console.Write("Enter the user name : ");
+        string name = Console.ReadLine();
+        Attendance o = new Attendance();
+        Banned b = new Banned();
+
+        o.BannedUser += b.UserBanned;
+
+        o.ShowAttendance(name);
 
         Console.ReadKey();
     }
